@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión — Social Net</title>
+  <link rel="stylesheet" href="inicio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="panel-formulario">
+
+    <a href="web_principal.html" class="boton-volver">← Volver al inicio</a>
+
+    <h1 class="titulo-formulario">Bienvenido de vuelta</h1>
+    <p class="subtitulo-formulario">
+      ¿No tienes cuenta?
+      <a href="registro.html" class="enlace-sesion">Regístrate aquí</a>
+    </p>
+
+    <section class="grupo-campos">
+
+      <p class="campo">
+        <label class="etiqueta-campo" for="campo-correo">Correo electrónico</label>
+        <input type="email" class="campo-texto" id="campo-correo" placeholder="tucorreo@colegio.cl">
+      </p>
+
+      <p class="campo">
+        <label class="etiqueta-campo" for="campo-contrasena">Contraseña</label>
+        <input type="password" class="campo-texto" id="campo-contrasena" placeholder="Tu contraseña">
+      </p>
+
+    </section>
+
+    <p id="mensaje-aviso" class="mensaje-aviso"></p>
+
+    <button class="boton-login" id="boton-login">Iniciar sesión →</button>
+
+  </main>
+
+  <script>
+    // Usuarios registrados de ejemplo (simula una base de datos)
+    // En la práctica, esto vendría de un servidor real
+    const USUARIOS = [
+      { correo: "demo@colegio.cl", contrasena: "123456" },
+      { correo: "test@colegio.cl", contrasena: "password" }
+    ];
+
+    const boton   = document.getElementById("boton-login");
+    const aviso   = document.getElementById("mensaje-aviso");
+    const correoInput = document.getElementById("campo-correo");
+    const claveInput  = document.getElementById("campo-contrasena");
+
+    boton.addEventListener("click", () => {
+      const correo   = correoInput.value.trim();
+      const contrasena = claveInput.value;
+
+      // Limpiar aviso anterior
+      aviso.className = "mensaje-aviso";
+      aviso.textContent = "";
+
+      // Validaciones básicas
+      if (!correo || !contrasena) {
+        aviso.classList.add("aviso-error");
+        aviso.textContent = "Por favor completa todos los campos.";
+        return;
+      }
+
+      if (!correo.includes("@")) {
+        aviso.classList.add("aviso-error");
+        aviso.textContent = "Ingresa un correo válido.";
+        return;
+      }
+
+      // Verificar si el usuario existe
+      const usuarioEncontrado = USUARIOS.find(
+        u => u.correo === correo && u.contrasena === contrasena
+      );
+
+      if (usuarioEncontrado) {
+        aviso.classList.add("aviso-exito");
+        aviso.textContent = "✓ Sesión iniciada correctamente. Redirigiendo...";
+        boton.disabled = true;
+        boton.style.opacity = "0.7";
+        // Aquí iría la redirección real, por ejemplo:
+        // setTimeout(() => window.location.href = "dashboard.html", 1200);
+      } else {
+        aviso.classList.add("aviso-error");
+        aviso.textContent = "Correo o contraseña incorrectos.";
+        claveInput.value = "";
+        claveInput.focus();
+      }
+    });
+
+    // También funciona con Enter
+    [correoInput, claveInput].forEach(input => {
+      input.addEventListener("keydown", e => {
+        if (e.key === "Enter") boton.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
+
