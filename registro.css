@@ -1,0 +1,239 @@
+/* ─── VARIABLES DE COLOR ─── */
+:root {
+  --crema:    #f7f3cf;
+  --menta:    #c2e4cb;
+  --turquesa: #36cecc;
+  --oceano:   #27b1bf;
+  --profundo: #176585;
+  --tinta:    #0d1f2d;
+  --marino:   #0e3a52;
+  --hielo:    #e8f8f8;
+  --palido:   #f0fbfb;
+  --apagado:  #6a9aaa;
+  --blanco:   #ffffff;
+  --borde:    #ddedf0;
+}
+
+/* ─── REINICIO BÁSICO ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--hielo);
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── FORMULARIO PANTALLA COMPLETA ─── */
+.panel-formulario {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 120px;
+}
+
+/* Botón volver */
+.boton-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--apagado);
+  font-size: .8rem;
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color .2s;
+  font-weight: 500;
+}
+
+.boton-volver:hover {
+  color: var(--oceano);
+}
+
+/* Título del formulario */
+.titulo-formulario {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--tinta);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.subtitulo-formulario {
+  color: var(--apagado);
+  font-size: .88rem;
+  margin-bottom: 36px;
+}
+
+.enlace-sesion {
+  color: var(--oceano);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.enlace-sesion:hover {
+  text-decoration: underline;
+}
+
+/* ─── FIELDSET BASE ─── */
+.grupo-campos,
+.grupo-intereses {
+  border: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+/* Leyenda oculta visualmente pero accesible */
+.leyenda-oculta {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ─── CAMPOS DEL FORMULARIO ─── */
+/* Cada campo es un párrafo: semántico y sin div */
+.campo {
+  margin-bottom: 18px;
+}
+
+.etiqueta-campo {
+  display: block;
+  margin-bottom: 7px;
+  font-size: .77rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--profundo);
+}
+
+.campo-texto {
+  width: 100%;
+  padding: 13px 18px;
+  border: 1.5px solid var(--borde);
+  border-radius: 12px;
+  font-size: .92rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--tinta);
+  background: var(--palido);
+  outline: none;
+  transition: border .2s, box-shadow .2s;
+}
+
+.campo-texto:focus {
+  border-color: var(--turquesa);
+  box-shadow: 0 0 0 3px rgba(54, 206, 204, .12);
+  background: var(--blanco);
+}
+
+.campo-texto::placeholder {
+  color: #a8c8d0;
+}
+
+/* ─── LISTA DE INTERESES ─── */
+/* ul y li sin estilos de lista */
+.lista-etiquetas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.lista-etiquetas li {
+  display: inline;
+}
+
+.etiqueta-interes {
+  display: inline-block;
+  padding: 7px 15px;
+  border-radius: 100px;
+  border: 1.5px solid var(--borde);
+  background: var(--palido);
+  font-size: .79rem;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--profundo);
+  user-select: none;
+}
+
+.etiqueta-interes:hover:not(.seleccionado) {
+  border-color: var(--oceano);
+  color: var(--oceano);
+}
+
+.etiqueta-interes.seleccionado {
+  background: var(--turquesa);
+  border-color: var(--turquesa);
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+/* ─── BOTÓN ENVIAR ─── */
+.boton-registro {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--turquesa), var(--oceano));
+  border: none;
+  color: var(--tinta);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .25s;
+  margin-top: 8px;
+}
+
+.boton-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(54, 206, 204, .35);
+}
+
+/* ─── MENSAJES DE AVISO ─── */
+.mensaje-aviso {
+  margin-top: 14px;
+  font-size: .85rem;
+  font-weight: 600;
+  text-align: center;
+  min-height: 20px;
+}
+
+.aviso-error {
+  color: #c0392b;
+}
+
+.aviso-exito {
+  color: var(--profundo);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+  .panel-formulario {
+    padding: 48px 24px;
+  }
+
+  .titulo-formulario {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .panel-formulario {
+    padding: 60px 40px;
+  }
+  }
+  
