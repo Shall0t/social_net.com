@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sour gummy, cursive;
+}
+
+/* Variables modo claro por defecto */
+:root {
+    --bg: #c3def0;
+    --text: #0f3f6c;
+
+    --btn-bg: #0f3f6c;
+    --btn-text: #c3def0;
+
+    --hr: #0e3352;
+    --casillas: #337594;
+}
+
+/* Variables cuando el modo oscuro se activa */
+body.dark-mode {
+    --bg: #0f3f6c;
+    --text: #c3def0;
+
+    --btn-bg: #c3def0;
+    --btn-text: #0f3f6c;
+
+    --hr: #0e3352;
+    --casillas: #001523;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* boton oscuro */
+#tema-boton {
+    color: #d8dbdd;
+    cursor: pointer;
+    font-size: 25px;
+    background-color: var(--hr);
+    border: none;
+    padding: 5px 10px;
+}
+
+/* --- encabezado --- */
+.header {
+    background-color: #0d1c2d;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+}
+
+#inicio {
+    font-family: 'Lilita One', cursive;
+}
+
+.header-container {
+    max-width: 1615px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub {
+    font-size: 27px;
+}
+
+.casilla {
+    width: 400px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    display: flex;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: 800;
+    color: rgb(50, 135, 187);
+    font-family: 'Lilita One', cursive;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- formulario --- */
+form {
+    background-color: var(--btn-text);
+    padding: 40px;
+    margin-top: 100px;
+    font-size: 20px;
+
+}
+
+.button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 13px 23px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+#ini {
+    margin-top: 25px;
+}
+
+#volver {
+    margin-bottom: 25px;
+}
+
+.button:hover {
+    background-color: var(--btn-text);
+    color: var(--btn-bg);
+    cursor: pointer;
+    box-shadow: 0 0px 16px var(--btn-bg);
+    border: 2px solid var(--btn-bg);
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 5rem;
+}
+
+input[type="text"], input[type="password"] {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    background-color: var(--btn-bg);
+}

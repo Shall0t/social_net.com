@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="iniciarSesion.css">
+    <link rel="stylesheet" href="socialNet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--- encabezado --->
+    <header class="header">
+        <div class="header-container">
+            <!--- logo izquierdo --->
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo de SocialNet" class="logo-icon">
+                <span class="logo-text">SocialNet</span> 
+            </div>
+        </div>
+    </header>
+
+    <!--- formulario --->
+    <form action="/tu-servidor-o-api" method="POST">
+        <a href="socialNet.html">
+            <button id="volver" type="button" class="button">Volver a la página principal</button>
+        </a>
+        <h2 id="inicio">Iniciar Sesión</h2>
+        <!--- correo --->
+        <div>
+            <label class="sub" for="email">Correo electrónico</label>
+            <input class="casilla" type="text" id="email" name="email" placeholder="nombre.apellido.apellido@alumnos.sip" required>
+        </div>
+        <!--- contraseña --->
+        <div>
+            <label class="sub" for="password">Contraseña</label>
+            <input class="casilla" type="password" id="password" name="password" placeholder="Tu constraseña" required>
+        </div>
+        <!--- iniciar sesión --->
+        <button id="ini" type="submit" class="button">Iniciar sesión →</button>
+    </form>
+
+    <script>
+        // Al cargar la página de inmediato aplica el modo correspondiente sin espacios extras
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+
+        // Detecta cambios si cambias el modo en la otra pestaña
+        window.addEventListener('storage', (event) => {
+            if (event.key === 'theme') {
+                if (event.newValue === 'dark') {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
