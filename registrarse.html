@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="registrarse.css">
+    <link rel="stylesheet" href="socialNet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--- encabezado --->
+    <header class="header">
+    <div class="header-container">
+    <!--- Logo izquierdo --->
+        <div class="logo-area">
+                <img src="logo.png" alt="Logo de SocialNet" class="logo-icon">
+                <span class="logo-text">SocialNet</span>
+        </div>
+    </div>
+    </header>
+    <form action="/tu-servidor-o-api" method="POST">
+    <a href="socialNet.html">
+        <button type="button" class="button">Volver a la página principal</button>
+    </a>
+        <h2 id="crear">Crear cuenta</h2>
+        <!--- apodo --->
+        <div>
+            <label for="username">Apodo</label>
+            <input class="casilla" type="text" id="username" name="username" placeholder="Tu nombre de usuario" required>
+        </div>
+        <!--- correo --->
+        <div>
+            <label for="email">Correo electrónico</label>
+            <input class="casilla" type="text" id="email" name="email" placeholder="nombre.apellido.apellido@alumnos.sip" required>
+        </div>
+        <!--- edad --->
+        <div>
+            <label for="age">Edad</label>
+            <input class="casilla" type="text" id="age" name="age" placeholder="Tu edad" required>
+        </div>
+        <!--- contraseña --->
+        <div>
+            <label for="password">Contraseña</label>
+            <input class="casilla" type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required>
+        </div>
+        <section class="grupo-interes">
+            <!--- cntereses --->
+            <h3 id="int">Intereses (mínimo 2)</h3>
+            <div class="checkbox-group">
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="gaming"> Gaming</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="deportes"> Deportes</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="fútbol"> Fútbol</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="música"> Música</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="arte"> Arte</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="cine"> Cine</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="literatura"> Literatura</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="fotografía"> Fotografía</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="tecnología"> Tecnología</label>
+                <label class="intereses-recuadro"><input type="checkbox" name="interests" value="viajes"> Viajes</label>
+            </div>
+        </section>
+        <!--- crear cuenta --->
+        <button id="btn-crear" type="submit" class="button">Crear cuenta →</button>
+    </form>
+    <script>
+        // Al cargar la página de inmediato aplica el modo correspondiente sin espacios extras
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+
+        // Detecta cambios si cambias el modo en la otra pestaña
+        window.addEventListener('storage', (event) => {
+            if (event.key === 'theme') {
+                if (event.newValue === 'dark') {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
