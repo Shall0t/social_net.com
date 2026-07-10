@@ -92,13 +92,16 @@ body {
 
 /* boton oscuro */
 #tema-boton {
-    color: #d8dbdd;
-    cursor: pointer;
-    font-size: 25px;
-    background-color: var(--hr);
+    border-radius: 50%;
     border: none;
-    padding: 5px 10px;
 }
+
+#tema-boton img {
+    width: 40px;
+    height: 35px;
+    border: none;
+}
+
 
 /* --- botones --- */
 .btn {
