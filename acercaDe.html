@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de nosotros</title>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <main> 
+
+    </main>
+    <footer>
+        <small>© 2026 Social Net — Los del Frente</small>
+        <span class="final">Hecho por estudiantes, para estudiantes</span>
+    </footer>
+        <script>
+    const btnVolverArriba = document.getElementById('btnVolverArriba');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btnVolverArriba.classList.remove('oculto');
+        }
+        else {
+            btnVolverArriba.classList.add('oculto');
+        }
+    });
+
+    const temaBoton = document.getElementById('tema-boton');
+
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    temaBoton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    </script>
+    
+</body>
+</html>

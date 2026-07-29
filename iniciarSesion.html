@@ -1,66 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Iniciar Sesión - SocialNet</title>
     <link rel="stylesheet" href="iniciarSesion.css">
-    <link rel="stylesheet" href="socialNet.css">
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--- encabezado --->
+
+    <!-- Encabezado idéntico -->
     <header class="header">
         <div class="header-container">
-            <!--- logo izquierdo --->
             <div class="logo-area">
-                <img src="logo.png" alt="Logo de SocialNet" class="logo-icon">
-                <span class="logo-text">SocialNet</span> 
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="Logo de SocialNet" class="logo-icon">
+                    <span class="logo-text">SocialNet</span>
+                </a>
+            </div>
+            <div class="auth-buttons">
+                <button id="tema-boton" aria-label="Cambiar tema">☀️</button>
+                <a href="index.html" class="btn btn-text">Volver al inicio</a>
             </div>
         </div>
     </header>
 
-    <!--- formulario --->
-    <form action="/tu-servidor-o-api" method="POST">
-        <a href="socialNet.html">
-            <button id="volver" type="button" class="button">Volver a la página principal</button>
-        </a>
-        <h2 id="inicio">Iniciar Sesión</h2>
-        <!--- correo --->
-        <div>
-            <label class="sub" for="email">Correo electrónico</label>
-            <input class="casilla" type="text" id="email" name="email" placeholder="nombre.apellido.apellido@alumnos.sip" required>
-        </div>
-        <!--- contraseña --->
-        <div>
-            <label class="sub" for="password">Contraseña</label>
-            <input class="casilla" type="password" id="password" name="password" placeholder="Tu constraseña" required>
-        </div>
-        <!--- iniciar sesión --->
-        <button id="ini" type="submit" class="button">Iniciar sesión →</button>
-    </form>
+    <!-- Contenido Principal: Formulario de Login -->
+    <main class="login-container">
+        <div class="login-card">
+            <h1 class="login-title">¡Hola de nuevo!</h1>
+            <p class="login-subtitle">Ingresa a tu cuenta para conectar con tus compañeros.</p>
 
+            <form class="login-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="email">Correo institucional o usuario</label>
+                    <input type="text" id="email" placeholder="ejemplo@estudiante.edu" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Recordarme
+                    </label>
+                    <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Iniciar Sesión</button>
+            </form>
+
+            <div class="login-footer">
+                <p>¿Aún no tienes una cuenta? <a href="registrarse.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página idéntico -->
+    <footer class="footer">
+        <small>© 2026 Social Net — Los del Frente</small>
+        <span class="final">Hecho por estudiantes, para estudiantes</span>
+    </footer>
+
+    <!-- Script de Tema Persistente -->
     <script>
-        // Al cargar la página de inmediato aplica el modo correspondiente sin espacios extras
+        const temaBoton = document.getElementById('tema-boton');
+
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
         }
 
-        // Detecta cambios si cambias el modo en la otra pestaña
-        window.addEventListener('storage', (event) => {
-            if (event.key === 'theme') {
-                if (event.newValue === 'dark') {
-                    document.body.classList.add('dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                }
+        temaBoton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
             }
         });
     </script>

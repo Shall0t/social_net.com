@@ -1,32 +1,39 @@
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sour gummy, cursive;
+    font-family: 'Sour Gummy', cursive;
 }
 
-/* Variables modo claro por defecto */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Mismas variables del Modo Claro --- */
 :root {
-    --bg: #c3def0;
-    --text: #0f3f6c;
-
-    --btn-bg: #0f3f6c;
-    --btn-text: #c3def0;
-
-    --hr: #0e3352;
-    --casillas: #337594;
+    --bg: #a0bff4;              
+    --text: #7090ce;            
+    --btn-bg: #7090ce;          
+    --btn-text: #fff5f1;        
+    --hr: #7090ce;              
+    --casillas: #fff5f1;        
+    --figuras-color: #7090ce;   
+    --input-bg: #ffffff;
+    --input-border: #7090ce;
 }
 
-/* Variables cuando el modo oscuro se activa */
+/* --- Mismas variables del Modo Oscuro --- */
 body.dark-mode {
-    --bg: #0f3f6c;
-    --text: #c3def0;
-
-    --btn-bg: #c3def0;
-    --btn-text: #0f3f6c;
-
-    --hr: #0e3352;
-    --casillas: #001523;
+    --bg: #0f172a;              
+    --text: #fff5f1;            
+    --btn-bg: #a0bff4;          
+    --btn-text: #0f172a;        
+    --hr: #0a0f1d;              
+    --casillas: #1e293b;        
+    --figuras-color: #334155;   
+    --input-bg: #0f172a;
+    --input-border: #a0bff4;
 }
 
 body {
@@ -35,33 +42,54 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
 }
 
-
-/* boton oscuro */
-#tema-boton {
-    color: #d8dbdd;
-    cursor: pointer;
-    font-size: 25px;
-    background-color: var(--hr);
-    border: none;
-    padding: 5px 10px;
-}
-
-/* --- encabezado --- */
-.header {
-    background-color: #0d1c2d;
+/* Patrón de figuras de fondo */
+body::before {
+    content: "";
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 80px;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.18; /* Ajusta la opacidad si quieres que resalte más o menos */
+    
+    /* Dibujo SVG integrado directo en CSS */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%237090ce" stroke-width="3" stroke-linecap="round"><rect x="15" y="15" width="20" height="20"/><circle cx="75" cy="25" r="10"/><path d="M15,65 L35,85 M35,65 L15,85"/><polygon points="75,65 65,85 85,85"/></svg>');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    
+    /* Animación del fondo */
+    animation: moverFondo 18s linear infinite;
 }
 
-#inicio {
-    font-family: 'Lilita One', cursive;
+/* Regla que mueve el fondo continuamente */
+@keyframes moverFondo {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 120px 120px;
+    }
+}
+
+/* --- Encabezado --- */
+.header {
+    background-color: var(--hr);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .header-container {
-    max-width: 1615px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     height: 100%;
@@ -70,84 +98,222 @@ body {
     justify-content: space-between;
 }
 
-.sub {
-    font-size: 27px;
-}
-
-.casilla {
-    width: 400px;
-    padding: 8px;
-    border-radius: 8px;
-}
-
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 10px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
 }
 
 .logo-icon {
-    width: 40px;
-    display: flex;
+    width: 35px;
+    height: auto;
 }
 
 .logo-text {
-    font-size: 30px;
-    font-weight: 800;
-    color: rgb(50, 135, 187);
+    font-size: 26px;
+    color: #fff5f1;
     font-family: 'Lilita One', cursive;
+    font-weight: 400;
 }
 
 .auth-buttons {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 12px;
 }
 
-/* --- formulario --- */
-form {
-    background-color: var(--btn-text);
-    padding: 40px;
-    margin-top: 100px;
+#tema-boton {
+    color: #fff5f1;
+    cursor: pointer;
     font-size: 20px;
-
+    background-color: transparent;
+    border: none;
+    padding: 5px;
 }
 
-.button {
+#tema-boton:hover {
+    transform: scale(1.1);
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-text {
+    background: #fff5f1;
+    color: #7090ce;
+    font-weight: 700;
+}
+
+body.dark-mode .btn-text {
+    background: #a0bff4;
+    color: #0f172a;
+}
+
+.btn-primary {
     background-color: var(--btn-bg);
     color: var(--btn-text);
-    border: none;
-    padding: 13px 23px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    margin: 10px 0;
-    font-size: 22px;
+    font-weight: 700;
 }
 
-#ini {
-    margin-top: 25px;
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-#volver {
-    margin-bottom: 25px;
+/* Botón Iniciar Sesión dentro del Formulario */
+.btn-full {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.25rem;
+    margin-top: 15px;
+    border-radius: 12px;
 }
 
-.button:hover {
-    background-color: var(--btn-text);
-    color: var(--btn-bg);
-    cursor: pointer;
-    box-shadow: 0 0px 16px var(--btn-bg);
-    border: 2px solid var(--btn-bg);
+/* --- Tarjeta de Login (Aumentada para Laptop) --- */
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px 20px;
 }
 
-h2 {
-    margin-bottom: 30px;
-    font-size: 5rem;
+.login-card {
+    background-color: var(--casillas);
+    color: var(--text);
+    width: 100%;
+    max-width: 520px; /* Aumentado de 420px a 520px */
+    padding: 50px 45px; /* Más espacio interno */
+    border-radius: 20px; /* Esquinas más suaves */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
 }
 
-input[type="text"], input[type="password"] {
-    display: block;
+.login-title {
+    font-family: 'Lilita One', cursive;
+    font-size: 3rem; /* Título más amplio */
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    background-color: var(--btn-bg);
+    font-weight: 400;
 }
+
+.login-subtitle {
+    font-size: 1.15rem; /* Subtítulo más legible */
+    margin-bottom: 35px;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Formulario e Inputs */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Más espacio entre campos */
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 1.05rem; /* Etiquetas más grandes */
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 18px; /* Inputs más altos y cómodos para escribir */
+    border-radius: 12px;
+    border: 2px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 1.05rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--btn-bg);
+    box-shadow: 0 0 0 3px rgba(112, 144, 206, 0.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem; /* Texto de opciones más grande */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.forgot-pass {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.login-footer {
+    margin-top: 35px;
+    font-size: 1.05rem;
+}
+
+.login-footer a {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* --- Pie de página --- */
+.footer {
+    background-color: var(--hr);
+    padding: 20px 30px;
+    text-align: center;
+    color: #fff5f1;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 580px) {
+    .login-card {
+        padding: 35px 25px;
+    }
+    .login-title {
+        font-size: 2.3rem;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+

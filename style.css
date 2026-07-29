@@ -2,33 +2,33 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sour gummy, cursive;
+    font-family: 'Sour Gummy', cursive;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* Variables modo claro por defecto */
+/* --- Modo Claro (Tus 3 colores elegidos: #a0bff4, #7090ce, #fff5f1) --- */
 :root {
-    --bg: #c3def0;
-    --text: #0f3f6c;
-
-    --btn-bg: #0f3f6c;
-    --btn-text: #c3def0;
-
-    --hr: #0e3352;
+    --bg: #a0bff4; /* Fondo claro pastel */
+    --text: #7090ce; /* Azul lavanda para textos */
+    --btn-bg: #7090ce; /* Botones azul lavanda */
+    --btn-text: #fff5f1; /* Texto de botón crema */
+    --hr: #7090ce; /* Header / Footer */
+    --casillas: #fff5f1; /* Tarjetas claras */
+    --figuras-color: #7090ce;   
 }
 
-/* Variables cuando el modo oscuro se activa */
+/* --- Modo Oscuro (Inversión cromática azul real) --- */
 body.dark-mode {
-    --bg: #0f3f6c;
-    --text: #c3def0;
-
-    --btn-bg: #c3def0;
-    --btn-text: #0f3f6c;
-
-    --hr: #0e3352;
+    --bg: #0f172a; /* Invertido: Azul muy oscuro de fondo */
+    --text: #fff5f1; /* Invertido: Texto claro para lectura */
+    --btn-bg: #a0bff4; /* Invertido: Botones claros pastel */
+    --btn-text: #0f172a; /* Texto oscuro sobre botón claro */
+    --hr: #0a0f1d; /* Header / Footer aún más oscuro */
+    --casillas: #1e293b; /* Invertido: Tarjetas azul noche */
+    --figuras-color: #334155;   
 }
 
 body {
@@ -37,29 +37,62 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s, color 0.3s;  
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
 }
 
-#titulo {
+/* Patrón de figuras de fondo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.18; /* Ajusta la opacidad si quieres que resalte más o menos */
+    
+    /* Dibujo SVG integrado directo en CSS */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%237090ce" stroke-width="3" stroke-linecap="round"><rect x="15" y="15" width="20" height="20"/><circle cx="75" cy="25" r="10"/><path d="M15,65 L35,85 M35,65 L15,85"/><polygon points="75,65 65,85 85,85"/></svg>');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    
+    /* Animación del fondo */
+    animation: moverFondo 18s linear infinite;
+}
+
+/* Regla que mueve el fondo continuamente */
+@keyframes moverFondo {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 120px 120px;
+    }
+}
+
+
+.titulo {
     font-family: 'Lilita One', cursive;
     font-weight: 800;
 }
 
-/* --- encabezado --- */
+/* --- Encabezado --- */
 .header {
     background-color: var(--hr);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 70px;
     z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .header-container {
-    max-width: 1600px;
-    margin-left: 20px;
-    padding: 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -69,89 +102,106 @@ body {
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
 }
 
 .logo-icon {
-    width: 40px;
-    display: flex;
+    width: 35px;
+    height: auto;
+    margin-right: 15px;
 }
 
 .logo-text {
-    font-size: 30px;
-    font-weight: 800;
-    color: #c3def0;
+    font-size: 26px;
+    color: #fff5f1;
     font-family: 'Lilita One', cursive;
     font-weight: 400;
+    margin: 0px;
+}
+
+.navlinks {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.link {
+    color: #fff5f1;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-left: 20px;
+}
+
+.link:hover {
+    opacity: 0.8;
 }
 
 .auth-buttons {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 12px;
 }
 
-/* boton oscuro */
 #tema-boton {
-    border-radius: 50%;
+    color: #fff5f1;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: transparent;
     border: none;
+    padding: 5px;
 }
 
-#tema-boton img {
-    width: 40px;
-    height: 35px;
-    border: none;
+#tema-boton:hover {
+    transform: scale(1.1);
 }
 
-
-/* --- botones --- */
+/* --- Botones --- */
 .btn {
-    padding: 10px 20px;
-    font-size: 17px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
     border-radius: 8px;
     cursor: pointer;
     border: none;
 }
 
 .btn-text {
-    background: #c3def0;
-    color: #0f3f6c;
+    background: #fff5f1;
+    color: #7090ce;
+    font-weight: 700;
+}
+
+body.dark-mode .btn-text {
+    background: #a0bff4;
+    color: #0f172a;
 }
 
 .btn-text:hover {
-    background-color: #eef5fb;
-    box-shadow: 0 0px 12px #eef5fb(68, 141, 175, 0.479);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 0px 12px var(--btn-text);
-    background-color: var(--btn-text);
-    color: var(--btn-bg);
-    border: var(--btn-bg) solid 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-/* --- efecto brillo --- */
-@keyframes parpadeo-sombra {
-0% {
-    box-shadow: 0 0 5px var(--btn-bg);
-}
-100% {
-    box-shadow: 0 0 20px var(--btn-bg);
-}
-}
-
-#int {
-    margin-bottom: 30px;
-}
-
-/* --- contenido --- */
+/* --- Hero --- */
 .hero {
-    flex: 0.5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 230px 20px 20px 20px;
+    padding: 140px 20px 40px 20px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -160,125 +210,176 @@ body {
     color: var(--btn-text);
     padding: 6px 16px;
     border-radius: 20px;
-    font-weight: 800;
-    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
     text-transform: uppercase;
+    margin-top: 110px;
 }
 
 .hero h1 {
-    font-size: 8rem;
+    font-size: 4.5rem;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1;
+    margin-bottom: 15px;
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 40px;
-    line-height: 1.6;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    max-width: 650px;
 }
 
 .btn-large {
-    color: var(--btn-text);
-    background-color: var(--btn-bg);
     padding: 12px 32px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    animation: parpadeo-sombra 1s infinite alternate;
-    font-size: 25px;
+    font-size: 1.2rem;
 }
 
-#btnVolverArriba {
-    background-color: #0f3f6c;
-    color: #c3def0;
-    border:#c3def0 solid 2px;
-    font-size: 25px;
-    text-decoration: none;
-    width: 50px; height: 50px;
-    right: 20px;
+/* --- Títulos --- */
+.section-title {
+    color: var(--text);
+    font-size: 2.8rem;
+    margin: 40px 0;
+    text-align: center;
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+}
+
+/* --- Tarjetas de Beneficios --- */
+.feature-container {
     display: flex;
-    padding: 5px;
-    padding-left: 11px;
-    position: fixed;
+    gap: 20px;
+    justify-content: center;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background-color: var(--casillas);
+    text-align: center;
+    padding: 30px 20px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.texto-beneficios {
+    color: var(--text);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+}
+
+.beneficios {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* --- Sección Final --- */
+#final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 40px auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.abajo {
+    background-color: var(--casillas);
+    color: var(--text);
+    width: 100%;
+    margin: 15px 0;
+    text-align: left;
+    padding: 35px;
+    font-size: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#sub-ti {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+}
+
+#sub-text {
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* --- Botón Volver Arriba --- */
+#btnVolverArriba {
+    background-color: var(--hr);
+    color: #fff5f1;
+    border: 2px solid #fff5f1;
+    font-size: 18px;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    right: 20px;
     bottom: 20px;
+    position: fixed;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 90;
 }
 
 #btnVolverArriba:hover {
-    background-color: #0e3352;
-    border:#c3def0 solid 2px;
-    box-shadow: 0 0px 12px rgba(68, 141, 175, 0.479);
+    transform: translateY(-3px);
 }
 
 #btnVolverArriba.oculto {
     display: none;
 }
 
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.section-title {
-    color: var(--text); /* Cambia con el modo claro/oscuro */
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-/* --- por qué elegir SocialNet --- */
-.feature-container {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.feature {
-    background-color: var(--btn-bg);
-    text-align: center;
-    padding: 20px;
-    width: 600px;
-    border-radius: 8px;
-    border: 2px solid var(--btn-bg);
-}
-
-.texto-beneficios {
-    color: var(--btn-text);
-    font-size: 2.5rem;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.beneficios {
-    color: var(--btn-text);
-    font-size: 1.1rem;
-    width: 440px;
-    text-align: center;
-    margin: 20px auto;
-}
-
-/* --- gq908jhgr8 --- */
-.testeo {
-    font-size: 2.1rem;
-    margin-bottom: 8px;
-    text-align: center;
-    margin-top: 100px;
-}
-
-/* --- pie de la pagina --- */
+/* --- Pie de página --- */
 .footer {
-    background-color: #0d1c2d;
-    padding: 30px;
+    background-color: var(--hr);
+    padding: 20px 30px;
     text-align: center;
-    color: #475569;
-    font-size: 14px;
+    color: #fff5f1;
+    font-size: 0.9rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
 }
 
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .navlinks {
+        display: none;
+    }
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+#net {
+    color: #fff5f1;
+}
+
+#ti-pri {
+    display: flex;
+}
