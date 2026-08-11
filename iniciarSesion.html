@@ -12,12 +12,12 @@
 </head>
 <body>
 
-    <!-- Encabezado idéntico -->
+    <!-- Encabezado -->
     <header class="header">
         <div class="header-container">
             <div class="logo-area">
                 <a href="index.html" class="logo-link">
-                    <img src="logo.png" alt="Logo de SocialNet" class="logo-icon">
+                    <img src="logo_social_net.png" alt="Logo de SocialNet" class="logo-icon">
                     <span class="logo-text">SocialNet</span>
                 </a>
             </div>
@@ -28,7 +28,7 @@
         </div>
     </header>
 
-    <!-- Contenido Principal: Formulario de Login -->
+    <!-- Formulario de registro -->
     <main class="login-container">
         <div class="login-card">
             <h1 class="login-title">¡Hola de nuevo!</h1>
@@ -37,7 +37,7 @@
             <form class="login-form" onsubmit="event.preventDefault();">
                 <div class="form-group">
                     <label for="email">Correo institucional o usuario</label>
-                    <input type="text" id="email" placeholder="ejemplo@estudiante.edu" required>
+                    <input type="text" id="email" placeholder="nombre.apellido@alumnos.sip" required>
                 </div>
 
                 <div class="form-group">
@@ -52,7 +52,7 @@
                     <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-full">Iniciar Sesión</button>
+                <a href="paginaPrincipal/feed.html" class="btn btn-primary btn-full">Iniciar Sesión</a>
             </form>
 
             <div class="login-footer">
@@ -61,13 +61,13 @@
         </div>
     </main>
 
-    <!-- Pie de página idéntico -->
+    <!-- Pie de páaina -->
     <footer class="footer">
         <small>© 2026 Social Net — Los del Frente</small>
         <span class="final">Hecho por estudiantes, para estudiantes</span>
     </footer>
 
-    <!-- Script de Tema Persistente -->
+    <!-- Script del tema -->
     <script>
         const temaBoton = document.getElementById('tema-boton');
 
@@ -84,5 +84,6 @@
             }
         });
     </script>
+
 </body>
 </html>
