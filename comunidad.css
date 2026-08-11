@@ -1,0 +1,85 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Sour Gummy', cursive; }
+html { scroll-behavior: smooth; }
+
+:root {
+    --bg: #a0bff4; --text: #7090ce; --btn-bg: #7090ce;
+    --btn-text: #fff5f1; --hr: #7090ce; --casillas: #fff5f1; --figuras-color: #7090ce;
+}
+body.dark-mode {
+    --bg: #0f172a; --text: #fff5f1; --btn-bg: #a0bff4;
+    --btn-text: #0f172a; --hr: #0a0f1d; --casillas: #1e293b; --figuras-color: #334155;
+}
+
+body {
+    background-color: var(--bg); color: var(--text); min-height: 100vh;
+    display: flex; flex-direction: column; transition: background-color 0.3s, color 0.3s;
+}
+
+/* Fondo con patróo de figuras */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.18;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%237090ce" stroke-width="3" stroke-linecap="round"><rect x="15" y="15" width="20" height="20"/><circle cx="75" cy="25" r="10"/><path d="M15,65 L35,85 M35,65 L15,85"/><polygon points="75,65 65,85 85,85"/></svg>');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    animation: moverFondo 18s linear infinite;
+}
+
+/* Regla que mueve el fondo continuamente */
+@keyframes moverFondo {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 120px 120px;
+    }
+}
+
+.header { background-color: var(--hr); position: fixed; top: 0; left: 0; width: 100%; height: 70px; z-index: 100; }
+.header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo-area { display: flex; align-items: center; }
+.logo-link { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+.logo-icon { width: 35px; height: auto; }
+.logo-text { font-size: 26px; color: #fff5f1; font-family: 'Lilita One', cursive; }
+.auth-buttons { display: flex; align-items: center; gap: 12px; }
+#tema-boton { color: #fff5f1; cursor: pointer; font-size: 20px; background: transparent; border: none; padding: 5px; }
+
+.btn { padding: 10px 22px; font-size: 1rem; border-radius: 10px; cursor: pointer; border: none; text-decoration: none; }
+.btn-text { background: #fff5f1; color: #7090ce; font-weight: 700; }
+body.dark-mode .btn-text { background: #a0bff4; color: #0f172a; }
+
+.page-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px 20px; }
+.page-card { background-color: var(--casillas); color: var(--text); width: 100%; max-width: 800px; padding: 50px 45px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.page-title { font-family: 'Lilita One', cursive; font-size: 3.2rem; margin-bottom: 10px; text-align: center; font-weight: 400; }
+.page-subtitle { font-size: 1.2rem; text-align: center; opacity: 0.9; margin-bottom: 25px; }
+.divider { border: none; height: 3px; background-color: var(--btn-bg); border-radius: 3px; margin-bottom: 35px; opacity: 0.4; }
+
+.page-section { margin-bottom: 30px; }
+.page-section h2 { font-family: 'Lilita One', cursive; font-size: 1.8rem; margin-bottom: 12px; font-weight: 400; }
+.page-section p { font-size: 1.1rem; line-height: 1.6; opacity: 0.95; }
+
+.custom-list { list-style-type: disc; padding-left: 25px; font-size: 1.1rem; line-height: 1.8; }
+.custom-list li strong { color: var(--btn-bg); }
+body.dark-mode .custom-list li strong { color: var(--text); }
+
+.faq-item { margin-top: 15px; margin-bottom: 20px; }
+.faq-item h3 { font-size: 1.25rem; margin-bottom: 6px; }
+
+.footer { background-color: var(--hr); padding: 20px 30px; text-align: center; color: #fff5f1; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+
+@media (max-width: 580px) {
+    .page-card { padding: 35px 25px; }
+    .page-title { font-size: 2.4rem; }
+    .footer { flex-direction: column; gap: 10px; }
+}
+.logo-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 5px;
+}
