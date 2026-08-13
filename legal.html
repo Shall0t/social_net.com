@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Legal - SocialNet</title>
+    <link rel="stylesheet" href="legal.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="logo_social_net.png" alt="Logo de SocialNet" class="logo-icon">
+                    <span class="logo-text">SocialNet</span>
+                </a>
+            </div>
+            <div class="auth-buttons">
+                <button id="tema-boton" aria-label="Cambiar tema">☀️</button>
+                <a href="index.html" class="btn btn-text">Volver al inicio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="page-container">
+        <div class="page-card">
+            
+            <h1 class="page-title">Información Legal</h1>
+            <p class="page-subtitle">Términos de uso, políticas de privacidad y protección de datos.</p>
+
+            <hr class="divider">
+
+            <!-- Términos y Condiciones -->
+            <section class="page-section">
+                <h2>Términos y Condiciones de Uso</h2>
+                <p>
+                    Al registrarte y utilizar SocialNet, aceptas utilizar la plataforma respetando a los demás usuarios y haciendo un uso exclusivamente educativo y de entretenimiento escolar.
+                </p>
+            </section>
+
+            <!-- Política de Privacidad -->
+            <section class="page-section">
+                <h2>Política de Privacidad</h2>
+                <p>
+                    En SocialNet protegemos tus datos personales. Tu correo electrónico institucional y edad solo se utilizan para la verificación de cuenta y nunca serán compartidos con terceros.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <small>© 2026 Social Net — Los del Frente</small>
+        <span class="final">Hecho por estudiantes, para estudiantes</span>
+    </footer>
+
+    <script>
+        const temaBoton = document.getElementById('tema-boton');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        temaBoton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'theme') document.body.classList.toggle('dark-mode', e.newValue === 'dark');
+        });
+    </script>
+</body>
+</html>
