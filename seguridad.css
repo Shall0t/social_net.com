@@ -138,8 +138,7 @@ body.dark-mode .btn-text {
     background-color: var(--casillas); 
     color: var(--text); 
     width: 100%; 
-    max-width: 800px; 
-    padding: 50px 45px; 
+    max-width: 800px; padding: 50px 45px; 
     border-radius: 20px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
 }
