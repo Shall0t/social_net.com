@@ -353,7 +353,7 @@ body.dark-mode .btn-text {
 }
 
 /* --- Pie de pagina --- */
-.footer {
+footer {
     background-color: var(--hr);
     padding: 20px 30px;
     text-align: center;
