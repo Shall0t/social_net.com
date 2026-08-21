@@ -15,11 +15,11 @@
         </nav>
     </header>
     <main>
-        <section>
-            <article>
+        <section class="main_sec">
+            <article class="m_a">
                 <h2>Match Aleatorio</h2>
                 <p>¿Con ganas de chatear de forma aleatoria y rapida?</p>
-                <h3>Probar Match</h3>
+                <h3 class="p_m">Probar Match</h3>
             </article>
             <article>
                 <p></p>
@@ -44,7 +44,36 @@
         </section>
     </main>
     <footer>
-
+        <small>© 2026 Social Net — Los del Frente</small>
+        <span class="final">Hecho por estudiantes, para estudiantes</span>
     </footer>
+        <!-- Script del tema-->
+    <script>
+    const btnVolverArriba = document.getElementById('btnVolverArriba');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btnVolverArriba.classList.remove('oculto');
+        }
+        else {
+            btnVolverArriba.classList.add('oculto');
+        }
+    });
+
+    const temaBoton = document.getElementById('tema-boton');
+
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    temaBoton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    </script>
+
 </body>
 </html>
