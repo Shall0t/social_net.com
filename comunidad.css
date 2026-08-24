@@ -62,10 +62,10 @@ body::before {
     align-items: center; 
 }
 .logo-link {
-     display: flex; 
-     align-items: center; 
-     gap: 15px; 
-     text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none; 
 }
 .logo-icon { 
     width: 35px; 

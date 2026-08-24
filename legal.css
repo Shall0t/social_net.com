@@ -87,9 +87,9 @@ body::before {
     justify-content: space-between; 
 }
 
-.logo-area { display: flex; align-items: center; }
+.logo-area { display: flex; gap: 0px; align-items: center; }
 .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-icon { width: 35px; height: auto; }
+.logo-icon { width: 50px; height: auto; }
 .logo-text { font-size: 26px; color: #fff5f1; font-family: 'Lilita One', cursive; }
 
 .nav-links { display: flex; gap: 20px; }
