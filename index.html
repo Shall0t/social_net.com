@@ -15,11 +15,11 @@
 <body>
     <!-- Encabezado -->
     <header class="header">
-    <div class="header-container">
-        <div class="logo-area">
-            <div class="logo-wrapper">
+    <section class="header-container">
+        <section class="logo-area">
+            <article class="logo-wrapper">
                 <img src="logoClaro.png" alt="Logo de SocialNet" class="logo-icon">
-            </div>
+            </article>
             <!-- Enlaces de navegacion -->
             <nav class="navlinks">
                 <a class="link" href="acercaDe.html">Acerca de nosotros</a>
@@ -29,23 +29,23 @@
             </nav>
             </div>
             <!-- Inicio de sesion y registro -->
-            <div class="auth-buttons">
+            <article class="auth-buttons">
                 <button id="tema-boton">☀️</button>
                 <a href="iniciarSesion.html">
                 <button class="btn btn-text" onclick="openModal('loginModal')">Iniciar sesión</button></a>
                 <a href="registrarse.html">
                 <button class="btn btn-text" onclick="openModal('registerModal')">Registrarse</button></a>
-            </div>
-        </div>
+            </article>
+        </section>
     </header>
 
     <!-- Contenido principal -->
     <main class="hero">
-        <div class="badge">red social estudiantil</div>
-        <div id="ti-pri">
+        <p class="badge">red social estudiantil</p>
+        <article id="ti-pri">
             <h1 class="titulo">SOCIAL</h1>
             <h1 id="net" class="titulo">NET</h1>
-        </div>
+        </article>
         <p>Conecta con tus compañeros, comparte ideas y encuentra a tu match perfecto dentro de tu comunidad escolar.</p>
         <a href="registrarse.html">
         <button class="btn btn-primary btn-large" onclick="openModal('registerModal')">Comenzar</button>
@@ -55,37 +55,39 @@
     </main>
     <!-- Seccion 1 -->
     <h1 class="section-title">¿Por qué elegir SocialNet?</h1>
-    <div class="feature-container">
+    <section class="feature-container">
         <!-- Articulo 1: Match Anonimo -->
-        <div class="feature" onclick="openModal('registerModal')">
+        <article class="feature" onclick="openModal('registerModal')">
             <h2 class="texto-beneficios">Match Anónimo</h2>
             <p class="beneficios">Chatea con estudiantes durante 5 minutes de forma anonima. Si hay conexion, revelan su identidad. La plataforma está diseñada para fomentar la confianza para los alumnos de forma segura.</p>
-        </div>
+        </article>
         <!-- Articulo 2: Privacidad y seguridad -->
-        <div class="feature">
+        <article class="feature">
             <h2 class="texto-beneficios">Privacidad y seguridad</h2>
             <p class="beneficios">Tu seguridad es nuestra prioridad. En SocialNet, implementamos medidas de seguridad avanzadas para proteger tu información personal y garantizar que tu experiencia en la plataforma sea segura y confiable.</p>
-        </div>
+        </article>
         <!-- Articulo 3: Comunidad real -->
-        <div class="feature">
+        <article class="feature">
             <h2 class="texto-beneficios">Comunidad real</h2>
             <p class="beneficios">Únete a una comunidad que comparten tus mismos intereses y gustos para mayor comodidad y conexiones autenticas.</p>
-        </div>
-    </div>
+        </article>
+    </section>
     <!-- Seccion 2 -->
-    <div id="final">  
+    <section id="final">  
         <!-- Articulo 1: ¿Y si tu match esta en el mismo pasillo? -->
-        <div class="abajo">
+        <article class="abajo">
             <h2 id="sub-ti">¿Y si tu match esta en el mismo pasillo?</h2>
             <p id="sub-text">Todos los dias pasas frente a personas increibles sin saberlo. SocialNet te ayuda a rimper el hielo de manera divertida y sin presion.</p>
             <a href="registrarse.html">
             <button class="btn btn-primary btn-large" onclick="openModal('registerModal')">¡Registrate ahora!</button>
-        </div>
+        </article>
         <!--  -->
-        <div class="abajo">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa vel temporibus quas, beatae velit numquam soluta vitae labore est! Adipisci recusandae dicta laboriosam voluptate aliquid debitis quisquam odio maxime autem.</p>
-        </div>
-    </div>
+        <article class="abajo">
+            <p> <strong>¡RECUERDA!</strong> SocialNet es una plataforma diseñada para fomentar la conexión auténtica entre estudiantes de forma segura y respetuosa, pero
+                no para sustituir la interacción cara a cara y en persona. Siempre es importante mantener un equilibrio saludable entre la vida digital y 
+                la vida real, y recordar que las relaciones significativas se construyen a través de la comunicación cara a cara y la interacción en el mundo real! </p>
+        </article>
+    </section>
     <a href="#" id="btnVolverArriba" class="oculto">▲</a>
     <!-- Pie de pagina -->
     <footer>
