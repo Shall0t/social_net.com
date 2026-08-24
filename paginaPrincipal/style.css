@@ -90,9 +90,13 @@ body::before {
 
 nav {
     display: flex;
-    justify-content: space-between;
-    margin: 20px 400px;
-}
+    justify-content: space-around;
+    margin: 20px 0px;
+    background-color: var(--figuras-color);
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 20px;
+    padding: 20px;}
 
 .m_a {
     background-color: var(--figuras-color);
@@ -112,6 +116,8 @@ nav {
 .main_sec {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .p_m {
@@ -120,4 +126,34 @@ nav {
     border-radius: 20px;
     width: 300px;
     margin-top: 20px ;
+}
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-radius: 20px;
+}
+
+.chat {
+    background-color: var(--figuras-color);
+    margin: 20px 0px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.mensaje {
+    align-items: center;
+}
+
+.sol {
+    font-size: 30px;
 }
