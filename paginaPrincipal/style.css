@@ -112,6 +112,8 @@ nav {
 .main_sec {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .p_m {
@@ -121,3 +123,28 @@ nav {
     width: 300px;
     margin-top: 20px ;
 }
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-radius: 20px;
+}
+
+.chat {
+    background-color: var(--figuras-color);
+    margin: 20px 0px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.mensaje {
+    align-items: center;}
