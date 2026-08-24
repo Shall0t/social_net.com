@@ -92,7 +92,7 @@ nav {
     display: flex;
     justify-content: space-around;
     margin: 20px 0px;
-    background-color: var(--figuras-color);
+    background-color: var(--hr);
     width: 100%;
     margin: 0px;
     margin-bottom: 20px;
