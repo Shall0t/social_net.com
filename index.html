@@ -14,12 +14,12 @@
 </head>
 <body>
     <!-- Encabezado -->
-    <header class="header">
-    <section class="header-container">
-        <section class="logo-area">
-            <article class="logo-wrapper">
-                <img src="logoClaro.png" alt="Logo de SocialNet" class="logo-icon">
-            </article>
+        <header class="header">
+        <section class="header-container">
+            <article class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="logoClaro.png" alt="Logo de SocialNet" class="logo-icon">
+                </a>
             <!-- Enlaces de navegacion -->
             <nav class="navlinks">
                 <a class="link" href="acercaDe.html">Acerca de nosotros</a>
@@ -27,17 +27,16 @@
                 <a class="link" href="seguridad.html">Seguridad</a>
                 <a class="link" href="legal.html">Legal</a>
             </nav>
-            </div>
-            <!-- Inicio de sesion y registro -->
+
+            </article>
+            
             <article class="auth-buttons">
-                <button id="tema-boton">☀️</button>
-                <a href="iniciarSesion.html">
-                <button class="btn btn-text" onclick="openModal('loginModal')">Iniciar sesión</button></a>
-                <a href="registrarse.html">
-                <button class="btn btn-text" onclick="openModal('registerModal')">Registrarse</button></a>
+                <button id="tema-boton" aria-label="Cambiar tema">☀️</button>
+                <a href="index.html" class="btn btn-text">Volver al inicio</a>
             </article>
         </section>
     </header>
+
 
     <!-- Contenido principal -->
     <main class="hero">
