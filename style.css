@@ -269,6 +269,10 @@ body.dark-mode .btn-text {
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
+.feature:hover {
+    transform: translateY(-2px);
+}
+
 .texto-beneficios {
     color: var(--text);
     font-size: 1.8rem;
@@ -349,7 +353,7 @@ body.dark-mode .btn-text {
 }
 
 /* --- Pie de pagina --- */
-.footer {
+footer {
     background-color: var(--hr);
     padding: 20px 30px;
     text-align: center;
