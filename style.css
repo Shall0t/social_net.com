@@ -104,7 +104,6 @@ body::before {
 .logo-icon {
     width: 35px;
     height: auto;
-    margin-right: 15px;
 }
 
 .logo-text {
@@ -203,7 +202,7 @@ body.dark-mode .btn-text {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 140px 20px 0px 20px;
+    padding: 202px 20px 202px 20px;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -221,14 +220,14 @@ body.dark-mode .btn-text {
 }
 
 .hero h1 {
-    font-size: 4.5rem;
+    font-size: 6.5rem;
     font-weight: 800;
     line-height: 1;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 30px;
     line-height: 1.5;
     max-width: 650px;
