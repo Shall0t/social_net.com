@@ -122,7 +122,7 @@ nav {
 
 .p_m {
     padding: 5px;
-    background-color: var(--btn-bg);
+    background-color: var(--bg);
     border-radius: 20px;
     width: 300px;
     margin-top: 20px ;
