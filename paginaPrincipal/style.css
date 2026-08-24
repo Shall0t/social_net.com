@@ -90,9 +90,13 @@ body::before {
 
 nav {
     display: flex;
-    justify-content: space-between;
-    margin: 20px 400px;
-}
+    justify-content: space-around;
+    margin: 20px 0px;
+    background-color: var(--figuras-color);
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 20px;
+    padding: 20px;}
 
 .m_a {
     background-color: var(--figuras-color);
@@ -147,4 +151,9 @@ img {
 }
 
 .mensaje {
-    align-items: center;}
+    align-items: center;
+}
+
+.sol {
+    font-size: 30px;
+}
