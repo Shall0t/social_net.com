@@ -96,7 +96,10 @@ nav {
     width: 100%;
     margin: 0px;
     margin-bottom: 20px;
-    padding: 20px;}
+    padding: 20px;
+    border-bottom: 1px solid;
+    border-color:#fff5f1;
+}
 
 .m_a {
     background-color: var(--figuras-color);
