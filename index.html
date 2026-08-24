@@ -13,8 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Encabezado -->
-        <header class="header">
+     <header class="header">
         <section class="header-container">
             <article class="logo-area">
                 <a href="index.html" class="logo-link">
@@ -31,8 +30,11 @@
             </article>
             
             <article class="auth-buttons">
-                <button id="tema-boton" aria-label="Cambiar tema">☀️</button>
-                <a href="index.html" class="btn btn-text">Volver al inicio</a>
+                <button id="tema-boton">☀️</button>
+                <a href="iniciarSesion.html">
+                <button class="btn btn-text" onclick="openModal('loginModal')">Iniciar sesión</button></a>
+                <a href="registrarse.html">
+                <button class="btn btn-text" onclick="openModal('registerModal')">Registrarse</button></a>
             </article>
         </section>
     </header>
